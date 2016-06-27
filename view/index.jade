@@ -1,0 +1,54 @@
+doctype html
+html(data-ng-app='myModule')
+    head
+        title Home Page
+        link(href='/styles/bootstrap.css', rel='stylesheet')
+        link(href='/styles/bootstrapjumbo.css', rel='stylesheet')
+        link(href='/styles/font-awesome.css', rel='stylesheet')
+        link(href='/styles/font-awesomeicon.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://code.jquery.com/jquery-3.0.0.min.js')
+        script(type='text/javascript', src='/angular/jquery.js')
+        script(type='text/javascript', src='/styles/bootstrap.js')
+        script(type='text/javascript', src='/angular/angular.min.js')
+        script(type='text/javascript', src='/angular/angular-route.js')
+        //link(href='https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+        //link(href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js')
+        script(type='text/javascript', src='/angular/app.js')
+        script(type='text/javascript', src='/angular/indexroute.js')
+    body
+        .container
+            nav.navbar.navbar-inverse.navbar-fixed-top
+                .container
+                    ul.active.nav.nav-pills.pull-left
+                        li(role='presentation')
+                            a.btn.btn-info.btn-sm(href='/') Home
+                        li(role='presentation')
+                            a.navbar-brand(href='/Login') Login
+                        li(role='presentation')
+                            a.navbar-brand(href='/signup') Register
+                .jumbotron
+                    h1 King Dance Academy
+                    p.lead
+                        | Dance is one of the Art. Many people enjoying to dance and few of them feel shy to dance.
+                        | Thats why we create
+                        code King Dance Academy
+                        |  where people learn and deliver thier talent
+                    p
+                        | Please
+                        a.btn.btn-md.btn-success(href='/signup', role='button') Register
+                        |    now...! And enjoy dancing with Us!!
+                .row.marketing
+                    .col-lg-6
+                        h4 Folk
+                        p To teach folk dance for tamil culture style based by expert choreographers.
+                        h4 Classic
+                        p To teach classic baradhanaatyam for south indian style by expert choreographers.
+                        h4 Western
+                        p
+                            | To teach western dance with rocking style as international level by expert choreographers.
+                    .col-lg-6
+                        h4 Hip-hop
+                        p To teach hip-hop and break-dance by expert choreographers.
+                        h4 Street dance
+                        p To teach hip-hop and break-dance by expert choreographers.

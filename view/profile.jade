@@ -1,0 +1,61 @@
+doctype html
+html
+    head
+        title Use Profile
+        link(href='/styles/bootstrap.css', rel='stylesheet')
+        link(href='/styles/bootstrapjumbo.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://code.jquery.com/jquery-3.0.0.min.js')
+        script(type='text/javascript', src='/angular/jquery.js')
+        script(type='text/javascript', src='/styles/bootstrap.js')
+        script(type='text/javascript', src='/angular/angular.min.js')
+        script(type='text/javascript', src='/angular/angular-route.js')
+        //link(href='https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+        //link(href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js')
+        script(type='text/javascript', src='/angular/app.js')
+        script(type='text/javascript', src='/angular/registercontroller.js')
+        script(type='text/javascript', src='/angular/logincontroller.js')
+    body(data-ng-app='myModule')
+        .container
+            nav.navbar.navbar-inverse
+                .container
+                    ul.active.nav.nav-pills.pull-right
+                        li
+                           a(href='#') #{user.email}
+                        li(role='presentation')
+                            a.btn.btn-info.btn-xs(href='/logout') Logout
+                .jumbotron
+                    h2 King Dance Academy
+                    .row.marketing
+                            // LOCAL INFORMATION
+                            .col-sm-10
+                                .well
+                                    h3
+                                        span.fa.fa-user
+                                        |  Local profile
+                                    p
+                                        strong  id
+                                        | :  #{user._id}
+                                        br
+                                        strong  email
+                                        | :  #{user.email}
+                                        br
+                                        strong  password
+                                        | :  #{user.password}
+                                        br
+            .row.marketing
+                    .col-lg-6
+                        h4 Folk
+                        p To teach folk dance for tamil culture style based by expert choreographers.
+                        h4 Classic
+                        p To teach classic baradhanaatyam for south indian style by expert choreographers.
+                        h4 Western
+                        p
+                            | To teach western dance with rocking style as international level by expert choreographers.
+                    .col-lg-6
+                        h4 Hip-hop
+                        p To teach hip-hop and break-dance by expert choreographers.
+                        h4 Street dance
+                        p To teach hip-hop and break-dance by expert choreographers.
+
+

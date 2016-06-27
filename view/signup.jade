@@ -1,0 +1,88 @@
+doctype html
+html
+    head
+        title Register
+        link(href='/styles/bootstrap.css', rel='stylesheet')
+        link(href='/styles/bootstrapjumbo.css', rel='stylesheet')
+        link(href='/styles/font-awesome.css', rel='stylesheet')
+        link(href='/styles/font-awesomeicon.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://code.jquery.com/jquery-3.0.0.min.js')
+        script(type='text/javascript', src='/angular/jquery.js')
+        script(type='text/javascript', src='/styles/bootstrap.js')
+        script(type='text/javascript', src='/angular/angular.min.js')
+        script(type='text/javascript', src='/angular/angular-route.js')
+        //link(href='https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+        //link(href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
+        //script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js')
+        script(type='text/javascript', src='/angular/app.js')
+        script(type='text/javascript', src='/angular/indexroute.js')
+        script(type='text/javascript', src='/angular/registercontroller.js')
+        script(type='text/javascript', src='/angular/logincontroller.js')
+        script(type='text/javascript', src='/angular/password-validator.js')
+    body(data-ng-controller='registerCtrl', data-ng-app='myModule')
+        .container
+            nav.navbar.navbar-inverse
+                .container
+                    ul.active.nav.nav-pills.pull-left
+                        li(role='presentation')
+                            a.navbar-brand(href='/') Home
+                        li(role='presentation')
+                            a.navbar-brand(href='/Login') Login
+                        li(role='presentation')
+                            a.btn.btn-success.btn-sm(href='/signup') Register
+                .jumbotron
+                    h2 King Dance Academy
+
+                        form.margin-base-vertical(name='userForm' method='post', action='/signup', data-ng-submit='postData(userForm.$valid)' novalidate='')
+                            .container
+                                if message.length > 0
+                                    .alert.alert-danger
+                                        p #{message}
+                                .row
+                                    .col-md-9
+                                        h2.margin-base-vertical(align='center') Sign Up
+                                        br
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-envelope
+                                            input.form-control.input-md(type='email', name='email', data-ng-model='registration.email',placeholder='Email Id', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.email.$invalid && userForm.email.$dirty') please enter valid email id
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-user
+                                            input.form-control.input-md(type='text', name='firstname', data-ng-model='registration.firstname', data-ng-minlength='6' data-ng-maxlength='15', placeholder='First Name', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.firstname.$invalid && userForm.firstname.$dirty')
+                                                | first name should between 6 to 15 characters
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-user
+                                            input.form-control.input-md(type='text', name='lastname', data-ng-model='registration.lastname', data-ng-minlength='6' data-ng-maxlength='15', placeholder='Last Name', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.lastname.$invalid && userForm.lastname.$dirty')
+                                                | last name should between 6 to 15 characters
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-user
+                                            input.form-control.input-md(type='number', name='age', data-ng-model='registration.age',placeholder='Age' min='5', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.age.$invalid && userForm.age.$dirty')
+                                                | age should be above 5
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-phone
+                                            input.form-control.input-md(type='number', name='mobile', data-ng-model='registration.mobile', data-ng-minlength='10' data-ng-maxlength='10', placeholder='Mobile number' data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.mobile.$invalid && userForm.mobile.$dirty') Mobile number should be 10 digits
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-key
+                                            input.form-control.input-md(type='password', name='password', data-ng-model='registration.password', data-ng-minlength='8' data-ng-maxlength='15', ng-pattern='/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/', placeholder='Password', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userForm.password.$error.minlength') password must be 8 to 15 characters..
+                                            span.error(style='color:red', data-ng-show='userForm.password.$error.maxlength') password must be 8 to 15 characters..
+                                            span.error(style='color:blue', data-ng-show='userForm.password.$error.pattern') (must use 1 upper case,lower case and number/symbol)
+                                        p.input-group
+                                            span.input-group-addon
+                                                span.icon-key
+                                            input.form-control.input-md(type='password', name='confirmpassword', placeholder='Confirm Password', data-ng-model='registration.confirmpassword' compare-to='registration.password', data-ng-required='true')
+                                            span.error(style='color:red', data-ng-show='userform.confirmpassword.$error.compareTo') Passwords does not match
+                                        br
+                                        div
+                                            button.btn.btn-success.btn-md.text-center(data-ng-disabled='userForm.$invalid', type='submit') Submit
+                                        br
